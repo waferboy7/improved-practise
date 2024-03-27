@@ -1,0 +1,12 @@
+.locate-button {
+  position: absolute;
+  z-index: 1000;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  background-color: #5e7bc7;
+  display: flex;
+  align-items: center;
+}

@@ -1,23 +1,35 @@
 import 'leaflet/dist/leaflet.css';
 
 import LocationMarker from '@components/LocationMarker';
+import { VITE_TILE_LAYER_URL } from '@constants/index';
 import { LatLngExpression } from 'leaflet';
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
+import React, { useEffect, useState } from 'react';
+import { MapContainer, TileLayer, ZoomControl } from 'react-leaflet';
 
-const Map = () => {
-  const position: LatLngExpression = [55.19280632148635, 30.2037174454355];
+const Map: React.FC = () => {
+  const [center, setCenter] = useState<LatLngExpression>([53.9, 27.5667]);
+
+  useEffect(() => {
+    const fetchUserLocation = () => {
+      if ('geolocation' in navigator) {
+        navigator.geolocation.getCurrentPosition((position) => {
+          const { latitude, longitude } = position.coords;
+          setCenter([latitude, longitude]);
+        });
+      } else {
+        console.log('Geolocation is not supported by this browser.');
+      }
+    };
+
+    fetchUserLocation();
+  }, []);
 
   return (
     <div className="leaflet-container">
-      <MapContainer center={position} zoom={18} scrollWheelZoom={true}>
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        <Marker position={position}>
-          <Popup>You are here!</Popup>
-        </Marker>
+      <MapContainer center={center} zoom={10} zoomControl={false} >
         <LocationMarker />
+        <ZoomControl position='topright'/>
+        <TileLayer url={VITE_TILE_LAYER_URL} />
       </MapContainer>
     </div>
   );

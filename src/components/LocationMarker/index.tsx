@@ -1,24 +1,35 @@
+import './style.css';
+
+import locationImg from '@assets/img/tabler_location-filled.svg';
 import { LatLngExpression } from 'leaflet';
 import { useState } from 'react';
 import { Marker, Popup, useMapEvents } from 'react-leaflet';
 
-const LocationMarker = () => {
+const LocationMarker: React.FC = () => {
   const [position, setPosition] = useState<LatLngExpression | null>(null);
 
   const map = useMapEvents({
-    click() {
-      map.locate();
-    },
     locationfound(e) {
       setPosition(e.latlng);
-      map.flyTo(e.latlng, map.getZoom());
+      map.flyTo(e.latlng, 16);
     },
   });
 
-  return position === null ? null : (
-    <Marker position={position}>
-      <Popup>You are here</Popup>
-    </Marker>
+  const handleLocateButtonClick = () => {
+    map.locate();
+  };
+
+  return (
+    <>
+      {position === null ? null : (
+        <Marker position={position}>
+          <Popup>You are here</Popup>
+        </Marker>
+      )}
+      <button className="locate-button" onClick={handleLocateButtonClick}>
+        <img src={locationImg} alt="locationImg" />
+      </button>
+    </>
   );
 };
 
