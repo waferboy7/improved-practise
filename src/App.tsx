@@ -1,10 +1,12 @@
 import './App.css';
 
 import Map from '@components/Map';
+import Sidebar from '@components/Sidebar';
 
-function App() {
+const App: React.FC = () => {
   return (
     <>
+      <Sidebar />
       <Map />
     </>
   );
