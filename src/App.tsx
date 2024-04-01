@@ -1,15 +1,14 @@
 import './App.css';
 
-import Map from '@components/Map';
-import Sidebar from '@components/Sidebar';
+import { router } from '@constants/router';
+import { RouterProvider } from 'react-router-dom';
 
 const App: React.FC = () => {
   return (
     <>
-      <Sidebar />
-      <Map />
+      <RouterProvider router={router} />
     </>
   );
-}
+};
 
 export default App;

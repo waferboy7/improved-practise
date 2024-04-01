@@ -1,22 +1,31 @@
 import './style.css';
 
-import favoritesImg from '@assets/img/favorites.svg';
-import logInImg from '@assets/img/logIn.svg';
-import logoImg from '@assets/img/logo.svg';
-import searchImg from '@assets/img/search.svg';
+import { favoritesImg, logInImg, logoImg, searchImg } from '@constants/index';
+import { Urls } from '@constants/urls';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Sidebar: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleSearchButton = () => {
+    navigate(Urls.search);
+  };
+
+  const handleFavouritesButton = () => {
+    navigate(Urls.favourites);
+  };
+
   return (
     <aside className="sidebar">
-      <a href="">
+      <Link to={Urls.main}>
         <img src={logoImg} alt="logo" />
-      </a>
+      </Link>
       <div className="sidebar-menu">
-        <div className='sidebar-buttons'>
-          <button>
+        <div className="sidebar-buttons">
+          <button onClick={handleSearchButton}>
             <img src={searchImg} alt="search" />
           </button>
-          <button>
+          <button onClick={handleFavouritesButton}>
             <img src={favoritesImg} alt="favorites" />
           </button>
         </div>
