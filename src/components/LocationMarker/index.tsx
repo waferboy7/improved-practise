@@ -1,6 +1,6 @@
 import './style.css';
 
-import locationImg from '@assets/img/tabler_location-filled.svg';
+import { locationImg } from '@constants/images';
 import { LatLngExpression } from 'leaflet';
 import { useState } from 'react';
 import { Marker, Popup, useMapEvents } from 'react-leaflet';
