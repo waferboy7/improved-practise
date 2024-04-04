@@ -1,6 +1,9 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 
+import placesSlice from './slices/placesSlice/placesSlice';
+
 const rootReducer = combineReducers({
+  places: placesSlice,
 });
 
 export const setupStore = () => {
