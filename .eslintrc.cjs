@@ -27,6 +27,7 @@ module.exports = {
           ['@utils', './src/utils'],
           ['@pages', './src/pages'],
           ['@hooks', './src/hooks'],
+          ['@store', './src/store'],
         ],
         extensions: ['.ts', '.js', '.jsx', '.json'],
       },

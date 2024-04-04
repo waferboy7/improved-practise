@@ -1,6 +1,6 @@
 import './style.css';
 
-import { favoritesImg, logInImg, logoImg, searchImg } from '@constants/index';
+import { favoritesImg, logInImg, logoImg, searchImg } from '@constants/images';
 import { Urls } from '@constants/urls';
 import { Link, useNavigate } from 'react-router-dom';
 
