@@ -1,36 +1,38 @@
 import './style.css';
 
-import { favoritesImg, logInImg, logoImg, searchImg } from '@constants/images';
+import SearchImg from '@assets/img/search.svg?react';
+import { FavoritesImg, LogInImg, LogoImg } from '@constants/images';
 import { Urls } from '@constants/urls';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Sidebar: React.FC = () => {
+  const { pathname } = useLocation();
   const navigate = useNavigate();
 
   const handleSearchButton = () => {
-    navigate(Urls.search);
+    pathname === Urls.search ? navigate(Urls.main) : navigate(Urls.search);
   };
 
   const handleFavouritesButton = () => {
-    navigate(Urls.favourites);
+    pathname === Urls.favourites ? navigate(Urls.main) : navigate(Urls.favourites);
   };
 
   return (
     <aside className="sidebar">
       <Link to={Urls.main}>
-        <img src={logoImg} alt="logo" />
+        <LogoImg />
       </Link>
       <div className="sidebar-menu">
         <div className="sidebar-buttons">
-          <button onClick={handleSearchButton}>
-            <img src={searchImg} alt="search" />
+          <button className={`sidebar-search ${pathname === Urls.search && 'on'}`} onClick={handleSearchButton}>
+            <SearchImg className="sidebar-search-icon" />
           </button>
-          <button onClick={handleFavouritesButton}>
-            <img src={favoritesImg} alt="favorites" />
+          <button className={`sidebar-favorites ${pathname === Urls.favourites && 'on'}`} onClick={handleFavouritesButton}>
+            <FavoritesImg className="sidebar-favorites-icon" />
           </button>
         </div>
-        <button>
-          <img src={logInImg} alt="login" />
+        <button className="sidebar-login">
+          <LogInImg />
         </button>
       </div>
     </aside>

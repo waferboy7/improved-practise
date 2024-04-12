@@ -1,6 +1,6 @@
-import favoritesImg from '@assets/img/favorites.svg';
-import logInImg from '@assets/img/logIn.svg';
-import logoImg from '@assets/img/logo.svg';
+import FavoritesImg from '@assets/img/favorites.svg?react';
+import LogInImg from '@assets/img/logIn.svg?react';
+import LogoImg from '@assets/img/logo.svg?react';
 import adultImg from '@assets/img/placeIcons/18+.svg';
 import amusementsImg from '@assets/img/placeIcons/amusements.svg';
 import archtectureImg from '@assets/img/placeIcons/architecture.svg';
@@ -19,10 +19,10 @@ import otherImg from '@assets/img/placeIcons/other.svg';
 import religionImg from '@assets/img/placeIcons/religion.svg';
 import shopImg from '@assets/img/placeIcons/shop.svg';
 import sportImg from '@assets/img/placeIcons/sport.svg';
-import searchImg from '@assets/img/search.svg';
-import locationImg from '@assets/img/tabler_location-filled.svg';
+import SearchImg from '@assets/img/search.svg?react';
+import LocationImg from '@assets/img/tabler_location-filled.svg?react';
 
-export { favoritesImg, locationImg,logInImg, logoImg, searchImg };
+export { FavoritesImg, LocationImg, LogInImg, LogoImg, SearchImg };
 
 export const placesImg = {
   adultImg,
