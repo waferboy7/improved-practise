@@ -1,15 +1,16 @@
 import { getFullPlacesUrl } from '@constants/getFullPlacesUrl';
 import { Action, createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Places } from '@type/places';
+import { UserLocation } from '@type/userLocation';
 import axios, { AxiosError } from 'axios';
 
-import { FetchPlacesArguments, PlaceState } from './types';
+import { PlaceState } from './types';
 
-export const fetchPlaces = createAsyncThunk<Places[], FetchPlacesArguments, { rejectValue: string }>(
+export const fetchPlaces = createAsyncThunk<Places[], UserLocation, { rejectValue: string }>(
   'places/fetchPlaces',
-  async function ({ radius, lat, lon }, { rejectWithValue }) {
+  async function ({ radius, lat, lng, kinds }, { rejectWithValue }) {
     const data = await axios
-      .get<Places[]>(getFullPlacesUrl(radius, lat, lon))
+      .get<Places[]>(getFullPlacesUrl(radius, lat, lng, kinds))
       .then((res) => res.data.filter((place) => place.name.trim() !== ''))
       .catch((e: AxiosError) => {
         return rejectWithValue(e.message);
