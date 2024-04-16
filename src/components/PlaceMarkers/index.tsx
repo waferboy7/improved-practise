@@ -1,10 +1,23 @@
 import PlaceIcons from '@constants/placeIcons';
 import { allPlaceKinds } from '@constants/placeOptions';
-import { useAppSelector } from '@hooks/redux-hooks';
+import { Urls } from '@constants/urls';
+import { useAppDispath, useAppSelector } from '@hooks/redux-hooks';
+import { fetchPlaceInfoById } from '@store/slices/favoritesSlice/favorites.slice';
 import { Marker, Popup } from 'react-leaflet';
+import { useNavigate } from 'react-router-dom';
 
 const PlaceMarkers: React.FC = () => {
   const places = useAppSelector((state) => state.places.list);
+  const { loading } = useAppSelector((state) => state.favoritesPlace);
+  const dispatch = useAppDispath();
+
+  const navigate = useNavigate();
+
+  const toggleButton = async (xid: string) => {
+    await dispatch(fetchPlaceInfoById(xid));
+
+    navigate(Urls.place.replace(':xid', xid));
+  };
 
   return (
     places.length > 0 &&
@@ -15,7 +28,14 @@ const PlaceMarkers: React.FC = () => {
 
       return (
         <Marker key={place.xid} position={[place.point.lat, place.point.lon]} icon={icon}>
-          <Popup>{place.name}</Popup>
+          <Popup>
+            <div>
+              <span>{place.name}</span>
+              <button onClick={() => toggleButton(place.xid)} disabled={loading}>
+                Подробнее
+              </button>
+            </div>
+          </Popup>
         </Marker>
       );
     })
