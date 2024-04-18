@@ -1,6 +1,7 @@
 import './style.css';
 
 import { LocationImg } from '@constants/images';
+import { markerIcon } from '@constants/placeIcons';
 import { useAppDispath, useAppSelector } from '@hooks/redux-hooks';
 import { setLocation } from '@store/slices/userLocationSlice/userLocationSlice';
 import { Marker, Popup, useMapEvents } from 'react-leaflet';
@@ -27,13 +28,12 @@ const LocationMarker: React.FC = () => {
   return (
     <>
       {lat !== null && lng !== null && (
-        <Marker position={{ lat, lng }}>
+        <Marker position={{ lat, lng }} icon={markerIcon}>
           <Popup>You are here</Popup>
         </Marker>
       )}
       <button className="locate-button" onClick={handleLocateButtonClick}>
         <LocationImg />
-        {/* <img src={locationImg} alt="locationImg" /> */}
       </button>
     </>
   );

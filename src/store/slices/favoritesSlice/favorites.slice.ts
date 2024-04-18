@@ -41,6 +41,13 @@ const favoritesSlice = createSlice({
     removeFavoritePlace(state, action: PayloadAction<string>) {
       state.list = state.list.filter((place) => place.xid !== action.payload);
     },
+    setCurrentPlace(state, action: PayloadAction<string>) {
+      const oldPlace = state.list.find((place) => place.xid === action.payload);
+
+      if (oldPlace) {
+        state.currentPlace = oldPlace;
+      }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -60,7 +67,7 @@ const favoritesSlice = createSlice({
 });
 
 export default favoritesSlice.reducer;
-export const { addFavouritePlace, removeFavoritePlace } = favoritesSlice.actions;
+export const { addFavouritePlace, removeFavoritePlace, setCurrentPlace } = favoritesSlice.actions;
 
 function isError(action: Action) {
   return action.type.endsWith('rejected');

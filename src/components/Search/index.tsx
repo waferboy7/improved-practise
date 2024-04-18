@@ -35,23 +35,24 @@ const Search: React.FC = () => {
 
   return (
     <div className="search">
-      <input className="search-input" type="text" name="place" id="place" placeholder="Место, адрес..." disabled />
       <div className="kinds">
         <h3>Искать:</h3>
-        <ul className="search-kind-list">
-          {places.map((place) => (
-            <li
-              onClick={() => {
-                dispatch(togglePlace(place));
-              }}
-              key={place.kind}
-              className={place.isSelected ? '' : 'no-selected'}
-            >
-              <img src={place.imgSrc} alt={place.kind} />
-              <span>{place.label}</span>
-            </li>
-          ))}
-        </ul>
+        <div className="search-kind-list-container">
+          <ul className="search-kind-list">
+            {places.map((place) => (
+              <li
+                onClick={() => {
+                  dispatch(togglePlace(place));
+                }}
+                key={place.kind}
+                className={place.isSelected ? '' : 'no-selected'}
+              >
+                <img src={place.imgSrc} alt={place.kind} />
+                <span>{place.label}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
       <div className="radius">
         <h3>В радиусе</h3>
