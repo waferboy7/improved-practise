@@ -1,0 +1,77 @@
+.favorite-item {
+  border: 3px solid #c4c4c4;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  padding: 20px 20px 30px 23px;
+}
+
+.favorite-item:last-child {
+  margin-bottom: 0;
+}
+
+.favorite-place-header {
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.favorite-place-image-block {
+  width: 120px;
+  height: 100px;
+  border-radius: 10px;
+  background-color: #808080;
+  margin-right: 20px;
+}
+
+.favorite-place-image {
+  width: 120px;
+  height: 100px;
+  border-radius: 10px;
+}
+
+.favorite-place-header h3 {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.favorite-place-header h3::first-letter {
+  text-transform: uppercase;
+}
+
+.favorite-place-main {
+  margin-top: 10px;
+}
+
+.favorite-place-main p {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.favorite-place-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.favorite-place-buttons button {
+  margin: 0;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  background-color: transparent;
+}
+
+.favorite-place-buttons button:hover {
+  border: 3px solid #c4c4c4;
+}
+
+.favorite-place-buttons button:active {
+  border: 3px solid #808080;
+}
