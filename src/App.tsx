@@ -1,9 +1,14 @@
 import './App.css';
 
-import Map from '@components/Map';
+import { router } from '@constants/router';
+import { RouterProvider } from 'react-router-dom';
 
-function App() {
-  return <Map />;
-}
+const App: React.FC = () => {
+  return (
+    <>
+      <RouterProvider router={router} />
+    </>
+  );
+};
 
 export default App;

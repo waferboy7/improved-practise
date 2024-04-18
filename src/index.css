@@ -1,5 +1,14 @@
+@font-face {
+  font-family: 'Mont';
+  src: url('assets/fonts/Mont/Mont-Regular.ttf');
+}
+
+* {
+  font-family: 'Mont';
+}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Mont, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -24,6 +33,7 @@ a:hover {
 
 body {
   margin: 0;
+  padding: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
@@ -36,33 +46,29 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
+  border-radius: 10px;
   background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  transition: all 0.3s ease-out;
+  border: none;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+button:hover {
+  transition: all 0.3s ease-out;
+}
+
+button:active {
+  transition: all 0.3s ease-out;
+}
+
+button:disabled {
+  background-color: gray;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
 }

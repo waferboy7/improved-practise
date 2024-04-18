@@ -1,24 +1,41 @@
-import { LatLngExpression } from 'leaflet';
-import { useState } from 'react';
+import './style.css';
+
+import { LocationImg } from '@constants/images';
+import { markerIcon } from '@constants/placeIcons';
+import { useAppDispath, useAppSelector } from '@hooks/redux-hooks';
+import { setLocation } from '@store/slices/userLocationSlice/userLocationSlice';
 import { Marker, Popup, useMapEvents } from 'react-leaflet';
 
-const LocationMarker = () => {
-  const [position, setPosition] = useState<LatLngExpression | null>(null);
+const LocationMarker: React.FC = () => {
+  const dispatch = useAppDispath();
+  const { lat, lng } = useAppSelector((state) => state.userLocation);
 
   const map = useMapEvents({
-    click() {
-      map.locate();
-    },
     locationfound(e) {
-      setPosition(e.latlng);
-      map.flyTo(e.latlng, map.getZoom());
+      const lat = e.latlng.lat;
+      const lng = e.latlng.lng;
+
+      dispatch(setLocation({ lat, lng }));
+
+      map.flyTo(e.latlng, 16);
     },
   });
 
-  return position === null ? null : (
-    <Marker position={position}>
-      <Popup>You are here</Popup>
-    </Marker>
+  const handleLocateButtonClick = () => {
+    map.locate();
+  };
+
+  return (
+    <>
+      {lat !== null && lng !== null && (
+        <Marker position={{ lat, lng }} icon={markerIcon}>
+          <Popup>You are here</Popup>
+        </Marker>
+      )}
+      <button className="locate-button" onClick={handleLocateButtonClick}>
+        <LocationImg />
+      </button>
+    </>
   );
 };
 

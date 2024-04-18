@@ -1,0 +1,136 @@
+.place-info {
+  max-width: 350px;
+  min-width: 350px;
+  margin: 0;
+  padding: 25px;
+  color: #000000;
+  background-color: #ffffff;
+  box-shadow: 1px 0px 20px 0px #0000001a;
+  display: flex;
+  flex-direction: column;
+}
+
+.place-info a {
+  margin-bottom: 15px;
+  color: #373737;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.place-info a svg {
+  transform: rotate(180deg);
+  fill: #373737;
+  margin-right: 10px;
+}
+
+.place-info-block {
+  padding: 20px;
+  border: 3px solid #c4c4c4;
+  border-radius: 10px;
+  overflow-y: auto;
+}
+
+.place-info-block::-webkit-scrollbar {
+  width: 5px;
+}
+
+.place-info-block::-webkit-scrollbar-track {
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+.place-info-block::-webkit-scrollbar-thumb {
+  background-color: #00000080;
+  border-radius: 10px;
+}
+
+.place-info-image {
+  width: 100%;
+  height: 300px;
+  background-color: #808080;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.place-info-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.place-info-inner {
+  padding: 10px;
+}
+
+.place-kinds img {
+  margin-right: 5px;
+}
+
+.place-kinds img:last-child {
+  margin-right: 0;
+}
+
+.place-info-inner h3 {
+  font-size: 24px;
+  font-weight: 800;
+  margin-top: 7px;
+  margin-bottom: 15px;
+}
+
+.place-info-inner h3::first-letter {
+  text-transform: uppercase;
+}
+
+.place-info-inner p {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.place-info-buttons {
+  margin-top: 50px;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.place-info-buttons button {
+  margin: 0;
+  padding: 5px 11px;
+  width: 130px;
+  height: 40px;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+}
+
+.place-info-buttons button svg {
+  min-width: 15px;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.place-info-favorite-button {
+  background-color: #c75e5e;
+  transition: all 0.3s ease-out;
+  border: 3px solid #c75e5e;
+}
+
+.place-info-favorite-button:hover {
+  border: 3px solid #c4c4c4;
+}
+
+.place-info-favorite-button.on {
+  border: 3px solid #c4c4c4;
+  background-color: transparent;
+  color: #808080;
+}
+
+.place-info-favorite-button.on:hover {
+  border: 3px solid #808080;
+}
+
+.place-info-favorite-button.on svg {
+  fill: #808080;
+}

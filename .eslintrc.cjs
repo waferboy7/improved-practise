@@ -22,10 +22,12 @@ module.exports = {
         map: [
           ['@assets', './src/assets'],
           ['@components', './src/components'],
-          ['@types', './src/types'],
+          ['@type', './src/type'],
           ['@constants', './src/constants'],
           ['@utils', './src/utils'],
           ['@pages', './src/pages'],
+          ['@hooks', './src/hooks'],
+          ['@store', './src/store'],
         ],
         extensions: ['.ts', '.js', '.jsx', '.json'],
       },
@@ -36,5 +38,6 @@ module.exports = {
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
     'import/no-unresolved': [2, { caseSensitive: false }],
+    '@typescript-eslint/ban-ts-comment': 'warn'
   },
 };
