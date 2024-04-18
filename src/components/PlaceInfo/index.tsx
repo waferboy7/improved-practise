@@ -1,12 +1,12 @@
 import './style.css';
 
-import { FavoritesImg, noImage } from '@constants/images';
+import { FavoritesImg, noImage, VectorImg } from '@constants/images';
 import placesOptions, { allPlaceKinds } from '@constants/placeOptions';
 import { Urls } from '@constants/urls';
 import { useAppDispath, useAppSelector } from '@hooks/redux-hooks';
 import { addFavouritePlace, removeFavoritePlace } from '@store/slices/favoritesSlice/favorites.slice';
 import { useEffect, useMemo } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 const PlaceInfo: React.FC = () => {
   const { xid } = useParams<{ xid: string }>();
@@ -45,7 +45,9 @@ const PlaceInfo: React.FC = () => {
   return (
     currentPlace && (
       <div className="place-info">
-        <h3>{xid}</h3>
+        <Link to={Urls.favourites}>
+          <VectorImg />В избранное
+        </Link>
         <div className="place-info-block">
           <div className="place-info-image">
             <img src={currentPlace.preview?.source || noImage} alt={currentPlace.preview?.source} />
@@ -61,7 +63,8 @@ const PlaceInfo: React.FC = () => {
             <div className="place-info-buttons">
               {!isFavorite ? (
                 <button className="place-info-favorite-button" onClick={toggleAddFavoriteButton}>
-                  <FavoritesImg />Добавить в избранное
+                  <FavoritesImg />
+                  Добавить в избранное
                 </button>
               ) : (
                 <button className="place-info-favorite-button on" onClick={toggleRemoveFavoriteButton}>
