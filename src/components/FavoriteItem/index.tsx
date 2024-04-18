@@ -3,7 +3,7 @@ import './style.css';
 import { FavoritesImg, noImage, VectorImg } from '@constants/images';
 import { Urls } from '@constants/urls';
 import { useAppDispath, useAppSelector } from '@hooks/redux-hooks';
-import { removeFavoritePlace } from '@store/slices/favoritesSlice/favorites.slice';
+import { removeFavoritePlace, setCurrentPlace } from '@store/slices/favoritesSlice/favorites.slice';
 import { useNavigate } from 'react-router-dom';
 
 import FavoriteItemProps from './types';
@@ -19,7 +19,9 @@ const FavoriteItem: React.FC<FavoriteItemProps> = ({ place }) => {
     dispatch(removeFavoritePlace(place.xid));
   };
 
-  const toggleInfoButton = async () => {
+  const toggleInfoButton = () => {
+    dispatch(setCurrentPlace(place.xid));
+
     navigate(Urls.place.replace(':xid', place.xid));
   };
 
