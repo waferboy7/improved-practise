@@ -1,0 +1,36 @@
+.mini-place-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mini-place-info p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.mini-place-info p::first-letter {
+  text-transform: uppercase;
+}
+
+.about-place-button {
+  margin: 0;
+  padding: 5px 11px;
+  width: 100px;
+  height: 40px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #5e7bc7;
+  border: 3px solid #5e7bc7;
+}
+
+.about-place-button:hover {
+  border: 3px solid #c4c4c4;
+}
+
+.about-place-button:disabled {
+  background-color: transparent;
+  cursor: wait;
+  color: #000000;
+}

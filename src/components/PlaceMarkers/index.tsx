@@ -1,3 +1,5 @@
+import './style.css';
+
 import PlaceIcons from '@constants/placeIcons';
 import { allPlaceKinds } from '@constants/placeOptions';
 import { Urls } from '@constants/urls';
@@ -29,9 +31,9 @@ const PlaceMarkers: React.FC = () => {
       return (
         <Marker key={place.xid} position={[place.point.lat, place.point.lon]} icon={icon}>
           <Popup>
-            <div>
-              <span>{place.name}</span>
-              <button onClick={() => toggleButton(place.xid)} disabled={loading}>
+            <div className="mini-place-info">
+              <p>{place.name}</p>
+              <button className="about-place-button" onClick={() => toggleButton(place.xid)} disabled={loading}>
                 Подробнее
               </button>
             </div>
