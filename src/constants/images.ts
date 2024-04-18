@@ -1,6 +1,7 @@
 import FavoritesImg from '@assets/img/favorites.svg?react';
 import LogInImg from '@assets/img/logIn.svg?react';
 import LogoImg from '@assets/img/logo.svg?react';
+import markerImg from '@assets/img/marker.svg';
 import noImage from '@assets/img/no-image.svg';
 import adultImg from '@assets/img/placeIcons/18+.svg';
 import amusementsImg from '@assets/img/placeIcons/amusements.svg';
@@ -27,6 +28,8 @@ import VectorImg from '@assets/img/vector.svg?react';
 export { FavoritesImg, LocationImg, LogInImg, LogoImg, SearchImg, VectorImg };
 
 export { noImage };
+
+export { markerImg };
 
 export const placesImg = {
   adultImg,
