@@ -38,7 +38,7 @@ const Search: React.FC = () => {
       <input className="search-input" type="text" name="place" id="place" placeholder="Место, адрес..." disabled />
       <div className="kinds">
         <h3>Искать:</h3>
-        <ul>
+        <ul className="search-kind-list">
           {places.map((place) => (
             <li
               onClick={() => {

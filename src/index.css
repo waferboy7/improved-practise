@@ -58,3 +58,8 @@ button:active {
 button:disabled {
   background-color: gray;
 }
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
